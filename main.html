@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Joe's Hotdogs</title>
+    <style type="text/css">
+        h1{
+            text-align: center;
+            font-size: x-large;
+            color: crimson;
+            font-family: fantasy;
+        }
+
+        td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: center;
+}
+    </style>
+
+<script language="javascript">
+    window.onload = function() {
+    
+        btn = document.getElementById("button1");
+        btn.onclick = function() {
+
+            var Hotdogs; // num Hot
+            var Fries; // num Fries
+            var Sodas; // num Sodas
+            
+            var H_total = parseFloat(document.form1.Hotdogs.value) * 3.75;
+            var F_total = parseFloat(document.form1.Fries.value) * 2.00;
+            var S_total = parseFloat(document.form1.Sodas.value) * 1.80
+
+            var subTotal = H_total + F_total + S_total;
+            var discount = 0;
+            if(subTotal = 0)
+            {
+                document.getElementById("result").innerHTML = "Error: Nothing was ordered"
+            }
+            else
+            {
+
+            if(subTotal > 20)
+            {
+                discount = 0.1 * subTotal;
+                subTotal = 0.9 * subTotal;
+            }
+
+            var tax = subTotal * 0.0625;
+            var total = subTotal + tax;
+            tax = tax.toFixed(2);
+            discount = discount.toFixed(2);
+            subTotal = subTotal.toFixed(2);
+            total = total.toFixed(2);
+             document.write("<table>" + "<br>" +
+                             "<tr>" + "<br>" + 
+                                "<th> Item </th>" + "<br>" +
+                                "<th> Amount </th>" + "<br>" +
+                             "</tr>" +
+                             "<tr>" +
+                                  "<td> Hotdogs </td>" + "<br>" +
+                                  "<td>" + Hotdogs + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                             "<tr>" + "<br>" +
+                                  "<td> Fries </td>" + "<br>" +
+                                  "<td>" + Fries + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                             "<tr>" + "<br>" +
+                                  "<td> Sodas </td>" + "<br>" + 
+                                  "<td>" + Sodas + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                             "<tr>" + "<br>" +
+                                  "<td> subTotal </td>" + "<br>" +
+                                  "<td> $" +  subTotal + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                             "<tr>" + "<br>" +
+                                  "<td> Discount </td>" + "<br>" +
+                                  "<td> $" + discount + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                             "<tr>" + "<br>" +
+                                  "<td> tax </td>" + "<br>" +
+                                  "<td> $" + tax + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                             "<tr>" + "<br>" +
+                                  "<td> final total </td>" + "<br>" +
+                                  "<td> $" + total + "</td>" + "<br>" +
+                             "</tr>" + "<br>" +
+                            "</table>")
+                             }
+                }
+    }
+        </script>
+
+    </head>
+
+    <body>
+        <h1>
+            Hi! Welcome to Joe's Hotdogs. Here is your Order
+        </h1>
+        <form name = 'form1'
+		  method ="get"  action="#" >
+        <label for="Hotdogs">Hotdogs </label>
+          <select id="Hotdogs" name="Hotdogs">
+              <option value="0"> 0</option>
+              <option value="1"> 1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+    <br>
+    <label for="Fries">Fries </label>
+    <select id="Fries" name="Fries">
+        <option value="0"> 0</option>
+        <option value="1"> 1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+    <br>
+    <label for="Sodas">Sodas </label>
+    <select id="Sodas" name="Sodas">
+        <option value="0"> 0</option>
+        <option value="1"> 1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+	<br>
+    <input type = "button" name ="button1" value = "Order" id = "button1">
+    <br>
+        </form>
+    </body>
+</html>
